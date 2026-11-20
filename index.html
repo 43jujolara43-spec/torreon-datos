@@ -33,7 +33,7 @@
 </style><style>
 .juezGold{background:linear-gradient(135deg,#3B2A05 0%,#6B4E0E 45%,#3B2A05 100%);border:2px solid #E3B341;box-shadow:0 0 16px rgba(227,179,65,.45),inset 0 0 18px rgba(255,212,0,.12)}
 .juezSum{font:800 24px/1.15 "Barlow Condensed","Arial Narrow",sans-serif;letter-spacing:.6px;text-transform:uppercase;color:#FFD54F;text-shadow:0 0 10px rgba(255,212,0,.55),0 2px 0 #3B2A05}
-.juezSum small{font:600 13px/1.2 "Source Sans 3",Arial,sans-serif;text-transform:none;color:#FFE9A8;text-shadow:none}
+.juezSum small{display:block;margin-top:3px;font:600 13px/1.2 "Source Sans 3",Arial,sans-serif;text-transform:none;color:#FFE9A8;text-shadow:none}
 .fiscRed{background:linear-gradient(135deg,#3A0C0C 0%,#5E1414 50%,#3A0C0C 100%);border:2px solid #E57373;box-shadow:0 0 12px rgba(229,115,115,.35)}
 .fiscSum{font:800 21px/1.15 "Barlow Condensed","Arial Narrow",sans-serif;letter-spacing:.5px;text-transform:uppercase;color:#FF8A80}
 .fiscSum small{font:600 13px/1.2 "Source Sans 3",Arial,sans-serif;text-transform:none;color:#FFCDD2}
@@ -800,7 +800,7 @@ button.bar .num .bst{color:#C9A227;font-weight:700}
 </div>
 <div id="juezZona" class="juezGold" style="margin-top:10px;padding:10px 12px;border-radius:14px">
   <button id="juezSw" class="ghost small" type="button" style="width:100%;margin-bottom:6px"></button>
-  <details id="juezTab"><summary class="juezSum" style="cursor:pointer">⚖️ Veredicto del Juez <small style="font-size:13px;opacity:.8">· J23 · 3 triples + 5 dobles</small></summary>
+  <details id="juezTab"><summary class="juezSum" style="cursor:pointer">⚖️ Veredicto del Juez <small style="font-size:13px;opacity:.8">J23 · 3 triples + 5 dobles</small></summary>
     <p class="hint" style="margin:6px 0">El Juez parte del boleto de mayoría de 8 boletos candidatos (cada uno con un filtro distinto) y solo se aparta en 3 casillas como mucho, con motivo escrito. La X tiene que ganarse la casilla: solo entra en un doble si la pone al menos la mitad de los boletos o el Fiscal de la X la defiende con fuerza. Los candidatos se enseñan al final de la jornada con sus aciertos.</p>
     <div id="juezImg"></div>
     <div id="juezTxt" style="font-size:13.5px;margin-top:6px"></div>
@@ -3498,7 +3498,7 @@ function pintaJuez(){var det=$i("juezTab");if(!det||!det.open)return;try{var cv=
 var jt=$i("juezTab");if(jt){jt.addEventListener("toggle",pintaJuez);var sm=jt.querySelector("summary small");}
 /* ---- 8 boletos del Juez ---- */
 function pinta8(){var c=cur(),B=window.juezCands?juezCands(c.T,c.D):J.cands,f=$i("j8fmt");if(f)f.textContent="· "+c.T+" triples + "+c.D+" dobles";
-  if(sm)sm.textContent="· J23 · "+c.T+" triples + "+c.D+" dobles";
+  if(sm)sm.textContent="J23 · "+c.T+" triples + "+c.D+" dobles";
   var d=$i("j8Tab");if(!d||!d.open)return;
   var ab=["T. puro","60/40","50/50","70/30","+Fiscal","+F. X","Gráf+velas","Mercado"];
   var h="<table class='codT' style='font-size:12px'><tr><th>#</th>"+ab.map(function(a){return "<th>"+a+"</th>"}).join("")+"<th>Mayoría</th><th>⚖️ Juez</th></tr>";
