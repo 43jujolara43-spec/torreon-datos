@@ -1,15 +1,37 @@
 {
   "name": "Torreón 1X2",
   "short_name": "Torreón",
-  "description": "Quiniela Torreón 1X2 · versión NO TOCAR · última jornada",
+  "description": "Quiniela Torreón 1X2 · última jornada",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0B1E3F",
-  "theme_color": "#0B1E3F",
+  "background_color": "#1565E8",
+  "theme_color": "#0D4BC4",
   "lang": "es",
   "icons": [
-    {"src": "icono-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
-    {"src": "icono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+    {
+      "src": "icono-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icono-192-mask.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icono-512-mask.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }
