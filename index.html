@@ -3179,7 +3179,7 @@ const EQID=[[15997, 15999], [16098, 16261], [16110, 15934], [15702, 16270], [160
     function marcar(){
       // boleto
       var cells=document.querySelectorAll("#cells .cell");
-      cells.forEach(function(c){var n=(c.querySelector(".n")||{}).textContent,sv=(c.querySelector(".s")||{}).textContent||"";
+      cells.forEach(function(c){var n=String(parseInt((c.querySelector(".n")||{}).textContent,10)),sv=(c.querySelector(".s")||{}).textContent||"";
         if(n==="15"){var p=plenoTxt(RES.p),lp=scLive("p");if(p)setHit(c,sv.trim()===p);else if(lp)setHit(c,sv.trim()===plenoTxt(lp),true);else setHit(c,null)}
         else{var i=+n-1,li=scLive(i);if(RES[i])setHit(c,evalLeg(sv,RES[i]));else if(li)setHit(c,evalLeg(sv,li),true);else setHit(c,null)}});
       // partidos
@@ -3254,7 +3254,7 @@ const EQID=[[15997, 15999], [16098, 16261], [16110, 15934], [15702, 16270], [160
     var LS_K=[["SpainPrimeraDivision", ["alaves"], ["coruna"]], ["SpainPrimeraDivision", ["rayo"], ["valencia"]], ["SpainPrimeraDivision", ["real madrid"], ["celta"]], ["SpainPrimeraDivision", ["barcelona"], ["villarreal"]], ["SpainPrimeraDivision", ["racing"], ["real sociedad"]], ["SpainPrimeraDivision", ["osasuna"], ["malaga"]], ["SpainPrimeraDivision", ["getafe"], ["atletico"]], ["SpainSegundaDivision", ["tenerife"], ["mallorca"]], ["SpainSegundaDivision", ["sporting"], ["las palmas"]], ["SpainSegundaDivision", ["girona"], ["eibar"]], ["SpainPrimeraDivisi", ["eibar"], ["atletico"]], ["SpainPrimeraDivisi", ["granada"], ["real madrid"]], ["SpainPrimeraDivisi", ["real sociedad"], ["sevilla"]], ["SpainPrimeraDivisi", ["tenerife"], ["madrid"]]];
     var LS_P=["SpainPrimeraDivision", ["sevilla"], ["betis"]];
     function nrm(x){return String(x||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g," ").trim()}
-    function cuando(info){var m=/(\d{1,2}),\s*(\d{1,2}):(\d{2})/.exec(info||"");if(!m)return null;var d=+m[1],mo=d<20?10:9;
+    function cuando(info){var m=/(\d{1,2}),\s*(\d{1,2}):(\d{2})/.exec(info||"");if(!m)return null;var d=+m[1],mo=10;
       return {iso:"2026-"+(mo+1<10?"0":"")+(mo+1)+"-"+(d<10?"0":"")+d,t:Date.UTC(2026,mo,d,+m[2]-1,+m[3])}}
     function pendientes(){var L=[];MT.forEach(function(mt,i){if(!RES[i])L.push({k:i,c:cuando(mt[2]),cfg:LS_K[i]})});if(!RES.p)L.push({k:"p",c:cuando(PLENO_INFO),cfg:LS_P});return L.filter(function(x){return x.c&&x.cfg})}
     var lsBusy=false,lsAuto=null;
