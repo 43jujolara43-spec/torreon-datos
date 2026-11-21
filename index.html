@@ -2356,7 +2356,7 @@ codTable();
       var o=R.ord[i],isT=R.tri.indexOf(i)>=0,isD=R.dob.indexOf(i)>=0;
       var cell=function(k){
         var fantasma=sy.fant&&isD&&k===o[2]&&(!sy.fantX||o[2]===1);
-        var on=isT||(isD&&(k!==o[2]||!sy.fantX||o[2]===1))||k===o[0];
+        var on=isT||(isD&&(k!==o[2]||(sy.fant&&(!sy.fantX||o[2]===1))))||k===o[0];
         if(sy.seg&&fantasma){return "<td style='text-align:center;padding:2px'><span style='display:inline-block;min-width:24px;border-radius:5px;padding:1px 4px;border:1px dashed #9B7BD6;opacity:.75'>🛡️"+S[k]+"</span></td>"}
         var st=!on?"opacity:.15":fantasma?"background:rgba(201,162,39,.3);border:1px dashed #C9A227;font-weight:700"
           :(isT&&k===o[0])?"background:#FFD400;color:#101C2E;font-weight:700"
