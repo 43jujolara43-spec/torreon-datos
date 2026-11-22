@@ -8,6 +8,13 @@
 .sorpSub{font-size:12px;opacity:.85}
 #sorpLine a{color:#FFD400;font-weight:700}
 </style><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0B1E3F"><meta name="apple-mobile-web-app-capable" content="yes">
+<!-- 22/11/2026: contador de visitas y descargas (GoatCounter, sin cookies). No toca el boleto. -->
+<script data-goatcounter="https://torreon1x2.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){
+function gc(path,title){var n=0;(function go(){if(window.goatcounter&&goatcounter.count){try{goatcounter.count({path:path,title:title,event:true})}catch(e){}}else if(n++<40){setTimeout(go,250)}})()}
+window.addEventListener("appinstalled",function(){gc("descarga-app","Descarga de la app (instalada en el móvil)")});
+try{if((window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone){gc("app-instalada-abierta","App abierta desde el icono")}}catch(e){}
+})();</script>
 <script>/* 17/11/2026: app instalable (GitHub Pages). En claude.ai no hace nada. */
 (function(){if(!/github\.io$/.test(location.hostname))return;
  try{if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js")}catch(e){}
