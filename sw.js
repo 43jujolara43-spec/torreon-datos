@@ -1,6 +1,6 @@
 /* Torreón 1X2 · app instalable. Siempre pide la última versión a internet;
    sin conexión enseña la última que descargó. */
-const C = "torreon-v11";
+const C = "torreon-v12";
 self.addEventListener("install", e => self.skipWaiting());
 self.addEventListener("activate", e => e.waitUntil(self.clients.claim()));
 self.addEventListener("fetch", e => {
