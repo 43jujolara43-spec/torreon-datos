@@ -2711,9 +2711,9 @@ const EQID=[[16107, 16098], [16050, 15679], [16007, 15692], [16110, 15997], [162
       var r=res[i];if(!r||!r.p)return;
       var el=d.querySelector("[data-rivluz]");
       if(!el){var rog=d.querySelector(".rog");if(rog){rog.insertAdjacentHTML("beforeend",'<span data-rivluz></span>')}el=d.querySelector("[data-rivluz]")}
-      if(el)el.innerHTML="<br>"+c.av.map(function(a){var pr=r.p[a.rivIdx],lz=rivLuz(pr);
+      if(el)el.innerHTML="<br>"+c.av.map(function(a){var pr=(r.base||r.p)[a.rivIdx],lz=rivLuz(pr);
         return '<span style="display:inline-block;margin-top:4px">⭐ <b>'+a.eq+'</b> ('+a.regla+' → «'+a.senal+'») · rival <b>'+a.rival+'</b> <i style="display:inline-block;width:11px;height:11px;border-radius:50%;background:'+LUZC[lz]+';box-shadow:0 0 6px '+LUZC[lz]+';vertical-align:middle"></i> '+
-          (lz==="rojo"?"rival fuerte":lz==="amarillo"?"rival medio":"rival flojo")+' (gana el '+fp(pr,0)+' según Torreón)</span>'}).join("<br>");
+          (lz==="rojo"?"rival fuerte":lz==="amarillo"?"rival medio":"rival flojo")+' (gana el '+fp(pr,0)+' según Torreón sin la estrella, base v8)</span>'}).join("<br>");
     });
     document.querySelectorAll("#cells .cell").forEach(function(cl){var n=cl.querySelector(".n");if(!n)return;var i=parseInt(n.textContent,10)-1;
       if(i>=0&&i<14&&CH[i]&&CH[i].star&&!cl.querySelector(".stRO")){n.insertAdjacentHTML("beforeend",'<span class="stRO" title="Regla de Oro (aviso)">⭐</span>')}});
@@ -2731,8 +2731,8 @@ const EQID=[[16107, 16098], [16050, 15679], [16007, 15692], [16110, 15997], [162
     var r=i===14?compute(P15):compute(state.matches[i]);if(!r||!r.p)return "";
     var L=LUCES[i];
     return c.av.map(function(a){
-      var sp=senalP(a,r.p),pr=r.p[a.rivIdx],lz=rivLuz(pr),loc=a.rivIdx===2,esRO3=/^RO3/.test(a.regla);
-      /* 07/11/2026 (Juanjo): índice ⭐ = % de la señal + 4 si es RO3 − 10 si el rival está en rojo (medido con 114 estrellas de 53 jornadas) */
+      var sp=senalP(a,r.base||r.p),pr=(r.base||r.p)[a.rivIdx],lz=rivLuz(pr),loc=a.rivIdx===2,esRO3=/^RO3/.test(a.regla);
+      /* 26/11/2026 (Juanjo): la señal y la luz del rival se miden con la base v8 SIN la Regla de Oro (antes con el % ya protegido: se daban la razón a sí mismas). 07/11/2026 (Juanjo): índice ⭐ = % de la señal + 4 si es RO3 − 10 si el rival está en rojo (medido con 114 estrellas de 53 jornadas) */
       var base=Math.round(sp.p*1000)/10,plus=esRO3?4:0,menos=pr>0.55?10:0,ind=Math.round((base+plus-menos)*10)/10;
       var col=ind>=70?["🟢","VERDE · fiable","en el pasado se cumplieron casi 9 de cada 10"]:ind>=55?["🟡","AMARILLA · dudosa","en el pasado se cumplieron más o menos la mitad"]:["🔴","ROJA · no te fíes","en el pasado se cumplieron menos de la mitad"];
       var h="<b>⭐ "+a.eq+" · "+a.regla+" → «"+a.senal+"»</b><br>";
